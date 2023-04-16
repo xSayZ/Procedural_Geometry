@@ -12,6 +12,15 @@ public class MeshBuilder
     public Matrix4x4 VertexMatrix = Matrix4x4.identity;
     public Matrix4x4 TextureMatrix = Matrix4x4.identity;
 
+    public void SetTextureMatrix(Vector3 translation, float angle)
+    {
+        TextureMatrix = Matrix4x4.Translate(translation) *
+                        Matrix4x4.Scale(new Vector3(0.25f, 0.5f, 0.5f)) *
+                        Matrix4x4.Translate(new Vector3(0.5f, 0.5f, 0f)) *
+                        Matrix4x4.Rotate(Quaternion.AngleAxis(angle, Vector3.forward)) *
+                        Matrix4x4.Translate(new Vector3(-0.5f, -0.5f, 0f));
+    }
+
     public int AddVertex(Vector3 position, Vector3 normal, Vector2 uv)
     {
         var index = vertices.Count;
