@@ -30,4 +30,4 @@ Unity 2021.3.4f1 or later: [Download Unity](https://unity.com/download)
 Contributions to this project are welcome. If you find any issues or have ideas for improvements, please submit a pull request or open an issue in the GitHub repository.
 
 ## Contact
-If you have any questions, suggestions, or feedback regarding this project, please feel free to contact the project maintainer at [felix@dyrhede.com].
+If you have any questions, suggestions, or feedback regarding this project, please feel free to contact the project maintainer at [sweg1223@gmail.com].
