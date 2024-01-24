@@ -13,6 +13,9 @@ public class Piece : MonoBehaviour
     bool isBridge;
 
     GridTile tile;
+    private MeshBuilder meshBuilder;
+    private MeshFilter meshFilter;
+    private MeshRenderer renderer;
 
     [SerializeField] Material material;
     private Mesh mesh;
@@ -24,8 +27,11 @@ public class Piece : MonoBehaviour
         mesh = new Mesh();
         mesh.name = "Tile";
         tile = GetComponent<GridTile>();
-        MeshRenderer renderer = GetComponent<MeshRenderer>();
+        renderer = GetComponent<MeshRenderer>();
         renderer.material = material;
+        
+        meshBuilder = new MeshBuilder();
+        meshFilter = GetComponent<MeshFilter>();
 
         type[0] = tile.GetProperty(GridTileProperty.Solid);
         type[1] = tile.GetProperty(GridTileProperty.Water);
@@ -48,10 +54,6 @@ public class Piece : MonoBehaviour
 
     private void DrawGrid()
     {
-       
-        var tile = GetComponent<GridTile>();
-        MeshBuilder meshBuilder = new MeshBuilder();
-        MeshFilter meshFilter = GetComponent<MeshFilter>();
 
         // Check if the tile is solid and/or water
         bool isSolid = tile.GetProperty(GridTileProperty.Solid);
@@ -227,7 +229,6 @@ public class Piece : MonoBehaviour
     {
         if (!showGizmos) return;
 
-        var tile = GetComponent<GridTile>();
         if (tile.GetProperty(GridTileProperty.Water) && tile.GetProperty(GridTileProperty.Solid))
         {
             Gizmos.color = Color.black;
